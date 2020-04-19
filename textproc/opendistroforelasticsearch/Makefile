@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opendistroforelasticsearch
-PORTVERSION=	1.3.0
+PORTVERSION=	1.6.0
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
 
@@ -46,8 +46,7 @@ BINS=		elasticsearch \
 		elasticsearch-shard
 
 PORTDOCS=	LICENSE.txt \
-		NOTICE.txt \
-		README.textile
+		NOTICE.txt
 
 SIGAR_ARCH=	${ARCH:S|i386|x86|}
 SEARCHUSER?=	elasticsearch
