@@ -1,3 +1,3 @@
-TIMESTAMP = 1604205964
-SHA256 (opendistroforelasticsearch-1.11.0.tar.gz) = 8c9bd5a5f1ae20c253786989cc191433db1b96214e5c5e6873fab549a1186db7
-SIZE (opendistroforelasticsearch-1.11.0.tar.gz) = 411803725
+TIMESTAMP = 1622195033
+SHA256 (opendistroforelasticsearch-1.13.2-linux-x64.tar.gz) = df77a8e246afd22a2803de0ff15a5ac615e63d318b029b18a9176842278874cb
+SIZE (opendistroforelasticsearch-1.13.2-linux-x64.tar.gz) = 425338682

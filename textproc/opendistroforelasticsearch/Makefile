@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opendistroforelasticsearch
-PORTVERSION=	1.11.0
+PORTVERSION=	1.13.2
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
 
@@ -17,6 +17,7 @@ RUN_DEPENDS=	bash>0:shells/bash \
 
 USES=		cpe shebangfix
 CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]* elasticsearch6-[0-9]*
+DISTNAME=	${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}-linux-x64${DISTVERSIONSUFFIX}
 
 NO_ARCH=	yes
 USE_JAVA=	yes
@@ -37,13 +38,17 @@ OPTIONS_DEFINE=	DOCS
 .include <bsd.port.options.mk>
 
 CONFIG_FILES=	elasticsearch.yml log4j2.properties jvm.options
-BINS=		elasticsearch \
+BINS=	\
+		elasticsearch \
 		elasticsearch-cli \
 		elasticsearch-env \
+		elasticsearch-env-from-file \
 		elasticsearch-keystore \
 		elasticsearch-node \
 		elasticsearch-plugin \
-		elasticsearch-shard
+		elasticsearch-shard \
+		performance-analyzer-agent-cli
+
 
 PORTDOCS=	LICENSE.txt \
 		NOTICE.txt
