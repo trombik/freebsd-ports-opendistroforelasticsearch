@@ -18,6 +18,7 @@ RUN_DEPENDS=	bash>0:shells/bash \
 USES=		cpe shebangfix
 CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]* elasticsearch6-[0-9]*
 DISTNAME=	${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}-linux-x64${DISTVERSIONSUFFIX}
+WRKSRC=	${WRKDIR}/${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}
 
 NO_ARCH=	yes
 USE_JAVA=	yes
