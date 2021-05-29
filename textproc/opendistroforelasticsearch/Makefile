@@ -65,8 +65,8 @@ SUB_LIST=	ETCDIR=${ETCDIR} JAVA=${JAVA} JAVA_HOME=${JAVA_HOME} INSTDIR=${PREFIX}
 SUB_FILES=	pkg-message
 
 post-patch:
-	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/config/elasticsearch.yml
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/bin/elasticsearch
+	${REINPLACE_CMD} -e "s|/bin/bash|${PREFIX}/bin/bash|" ${WRKSRC}/bin/elasticsearch-*
 	${RM} ${WRKSRC}/lib/jna-*.jar
 
 do-install:
