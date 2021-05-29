@@ -24,14 +24,6 @@ USE_JAVA=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	11+
 USE_RC_SUBR=	elasticsearch
-SHEBANG_FILES=	bin/elasticsearch \
-		bin/elasticsearch-cli \
-		bin/elasticsearch-env \
-		bin/elasticsearch-keystore \
-		bin/elasticsearch-node \
-		bin/elasticsearch-plugin \
-		bin/elasticsearch-shard \
-		opendistro-tar-install.sh
 
 OPTIONS_DEFINE=	DOCS
 
@@ -48,6 +40,10 @@ BINS=	\
 		elasticsearch-plugin \
 		elasticsearch-shard \
 		performance-analyzer-agent-cli
+.for F in ${BINS}
+SHEBANG_FILES+=	bin/${F}
+.endfor
+SHEBANG_FILES+=	opendistro-tar-install.sh
 
 PORTDOCS=	LICENSE.txt \
 		NOTICE.txt
@@ -64,7 +60,6 @@ SUB_FILES=	pkg-message
 
 post-patch:
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/bin/elasticsearch
-	${REINPLACE_CMD} -e "s|/bin/bash|${PREFIX}/bin/bash|" ${WRKSRC}/bin/elasticsearch-*
 	${RM} ${WRKSRC}/lib/jna-*.jar
 
 do-install:
