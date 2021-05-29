@@ -90,20 +90,14 @@ do-install:
 	${LN} -s ${JAVASHAREDIR}/classes/jna.jar ${STAGEDIR}${PREFIX}/lib/elasticsearch/lib/jna.jar
 
 	${INSTALL_SCRIPT} ${WRKSRC}/opendistro-tar-install.sh ${STAGEDIR}${PREFIX}/lib/elasticsearch
+
+	# remove linux binaries
+	${RM} ${STAGEDIR}${PREFIX}/lib/elasticsearch/plugins/opendistro-knn/knn-lib/libKNNIndexV2_0_11.so
+
 do-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 .for f in ${PORTDOCS}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${STAGEDIR}${DOCSDIR}
 .endfor
-
-post-install:
-	${ECHO} "@sample ${ETCDIR}/elasticsearch.yml.sample" >> ${TMPPLIST}
-	${ECHO} "@sample ${ETCDIR}/log4j2.properties.sample" >> ${TMPPLIST}
-	${ECHO} "@sample ${ETCDIR}/jvm.options.sample" >> ${TMPPLIST}
-	${FIND} -s ${STAGEDIR}${PREFIX}/lib/elasticsearch -not -type d | ${SORT} | \
-		${SED} -e 's#^${STAGEDIR}${PREFIX}/##' >> ${TMPPLIST}
-	${ECHO} "@dir lib/elasticsearch/plugins" >> ${TMPPLIST}
-	${ECHO} "@dir libexec/elasticsearch" >> ${TMPPLIST}
-	${ECHO} "@dir(elasticsearch,elasticsearch,0755) ${ETCDIR}" >> ${TMPPLIST}
 
 .include <bsd.port.mk>
