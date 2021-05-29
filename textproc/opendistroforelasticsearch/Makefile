@@ -1,10 +1,10 @@
 # Created by: Tom Judge <tj@FreeBSD.org>
-# $FreeBSD$
 
 PORTNAME=	opendistroforelasticsearch
 PORTVERSION=	1.13.2
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
+DISTNAME=	${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}-linux-x64${DISTVERSIONSUFFIX}
 
 MAINTAINER=	y@trombik.org
 COMMENT=	Apache 2.0-licensed full-text search engine for Java
@@ -17,7 +17,6 @@ RUN_DEPENDS=	bash>0:shells/bash \
 
 USES=		cpe shebangfix
 CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]* elasticsearch6-[0-9]*
-DISTNAME=	${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}-linux-x64${DISTVERSIONSUFFIX}
 WRKSRC=	${WRKDIR}/${PORTNAME}-${DISTVERSIONPREFIX}${DISTVERSION}
 
 NO_ARCH=	yes
@@ -49,7 +48,6 @@ BINS=	\
 		elasticsearch-plugin \
 		elasticsearch-shard \
 		performance-analyzer-agent-cli
-
 
 PORTDOCS=	LICENSE.txt \
 		NOTICE.txt
